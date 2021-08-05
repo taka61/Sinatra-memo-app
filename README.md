@@ -29,8 +29,9 @@ $ bundle exec ruby memo_app.rb
 4. 実行すると、ターミナルで以下のような画面が立ち上がります。
 <img width="560" alt="スクリーンショット 2021-08-05 13 50 31" src="https://user-images.githubusercontent.com/80372144/128292878-e04a9b0c-f90c-486a-9df8-2e8a5eae3aac.png">
 
-5.ターミナルを起動したまま`http://localhost:4567/memos`をブラウザに入力してください。
-下記の画面が表示されましたら導入完了となります。メモの追加や削除を実行してみて下さい！
+5. ターミナルを起動したまま`http://localhost:4567/memos`をブラウザに入力してください。
+
+ 下記の画面が表示されましたら導入完了となります。メモの追加や削除を実行してみて下さい！
 
 <img width="248" alt="スクリーンショット 2021-08-05 13 45 56" src="https://user-images.githubusercontent.com/80372144/128293131-182cfe35-e657-4813-98b6-c145ef804a81.png">
 
