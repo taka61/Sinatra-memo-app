@@ -1,4 +1,4 @@
-# Sinatraメモアプリ
+# Sinatraメモアプリ(DB利用)
 
 ## はじめに
 ### Sinatraを用いて簡易的なメモアプリを作成しました
@@ -12,6 +12,21 @@
 4. `変更`ボタンを押すとメモの編集画面へ移行します
 5. `削除`ボタンを押すとメモが削除されます
 
+## PostgreSQLの導入
+メモデーターの保存先はPostgreSQLになります。メモアプリインストール前にPostgreSQLの設定を行ってください。
+1. `sinatra_app`のデータベースを以下のコマンドで作成します。
+```
+create database sinatra_app;
+```
+2. `memos`のテーブルを以下のコマンドで作成します。
+```
+# CREATE TABLE memos
+# (id char(36) not null,
+# title text not null,
+# message text not null,
+# PRIMARY KEY(id));
+```
+PostgreSQLの設定は以上となります。
 
 ## メモアプリのインストール法
 
@@ -31,7 +46,7 @@ $ bundle exec ruby memo_app.rb
 
 5. ターミナルを起動したまま`http://localhost:4567/memos`をブラウザに入力してください。
 
- 下記の画面が表示されましたら導入完了となります。メモの追加や削除を実行してみて下さい！
+ 下記の画面が表示されましたらメモアプリ導入完了となります。
 
 <img width="248" alt="スクリーンショット 2021-08-05 13 45 56" src="https://user-images.githubusercontent.com/80372144/128293131-182cfe35-e657-4813-98b6-c145ef804a81.png">
 
