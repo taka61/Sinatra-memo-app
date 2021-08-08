@@ -1,0 +1,7 @@
+<h1 class="header__title">メモアプリ</h1>
+<div class="memos_list">
+  <% @data.each do |memo| %>
+  <li><a href="/memos/<%= memo["id"] %>"><%= memo["title"] %></a></li>
+  <% end %>
+</div>
+<input type="button" onclick="location.href='http://localhost:4567/memos/new'" value="追加">
