@@ -1,11 +1,11 @@
 <h1 class="header__title">メモ編集</h1>
-<form action="http://localhost:4567/memos/<%= @specific["id"] %>" method="POST">
+<form action="/memos/<%= @specific["id"] %>" method="POST">
   <input type="hidden" name="_method" value="patch">
   <p class="memo-title">メモタイトル <br>
-    <input type="text" name="title" value="<%= @specific["title"]%>">
+    <input type="text" name="title" value="<%= h(@specific["title"])%>">
   </p>
   <p class="memo-title">メモ内容 <br>
-    <textarea name="message" rows="3" cols="30"><%= @specific["message"]%></textarea>
+    <textarea name="message" rows="3" cols="30"><%= h(@specific["message"])%></textarea>
   </p>
   <button type="submit">変更</button>
 </form>
