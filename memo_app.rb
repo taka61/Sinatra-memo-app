@@ -12,9 +12,15 @@ helpers do
   end
 end
 
-def receive_memo
-  File.open("json/#{params['id']}.json") do |file|
+def read_memo(id)
+  File.open("json/#{id}.json") do |file|
     JSON.parse(file.read)
+  end
+end
+
+def write_memo(hashs)
+  File.open("json/#{hashs['id']}.json", 'w') do |file|
+    JSON.dump(hashs, file)
   end
 end
 
@@ -30,32 +36,28 @@ end
 
 post '/memos' do
   hashs = { 'id' => SecureRandom.uuid, "title": params[:title], "message": params[:message] }
-  File.open("json/#{hashs['id']}.json", 'w') do |file|
-    JSON.dump(hashs, file)
-    redirect to('/memos')
-  end
+  write_memo(hashs)
+  redirect to('/memos')
 end
 
 get '/memos/:id' do
-  @specific = receive_memo
+  @memo = read_memo(params['id'])
   erb :show
 end
 
 get '/memos/:id/edit' do
-  @specific = receive_memo
+  @memo = read_memo(params['id'])
   erb :edit
 end
 
 get '/memos/:id/delete' do
-  @specific = receive_memo
+  @memo = read_memo(params['id'])
   erb :delete
 end
 
 patch '/memos/:id' do
-  hashs = { 'id' => params[:id], "title": params[:title], "message": params[:message] }
-  File.open("json/#{params['id']}.json", 'w') do |file|
-    JSON.dump(hashs, file)
-  end
+  edit_hashs = { 'id' => params[:id], "title": params[:title], "message": params[:message] }
+  write_memo(edit_hashs)
   redirect to('/memos')
 end
 
