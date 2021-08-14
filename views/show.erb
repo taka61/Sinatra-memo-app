@@ -1,7 +1,7 @@
 <h1 class="header__title">メモアプリ</h1>
 <p class="sub-title">メモタイトル</p>
-<p><%= h(@specific["title"]) %></p>
+<p><%= h(@memo["title"]) %></p>
 <p class="sub-title">メモ内容 </p>
-<p><%= h(@specific["message"]) %></p>
-<input type="button" onclick="location.href='/memos/<%= @specific["id"] %>/edit'" value="変更">
-<button onclick="location.href='/memos/<%= @specific["id"] %>/delete'">削除</button>
+<p><%= h(@memo["message"]) %></p>
+<input type="button" onclick="location.href='/memos/<%= @memo["id"] %>/edit'" value="変更">
+<button onclick="location.href='/memos/<%= @memo["id"] %>/delete'">削除</button>
