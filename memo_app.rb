@@ -18,6 +18,11 @@ def read_memo(id)
   end
 end
 
+def read_all
+  files = Dir.glob('json/*')
+  @hashs = files.map { |file| JSON.parse(File.read(file)) }
+end
+
 def write_memo(hashs)
   File.open("json/#{hashs['id']}.json", 'w') do |file|
     JSON.dump(hashs, file)
@@ -25,8 +30,7 @@ def write_memo(hashs)
 end
 
 get '/memos' do
-  files = Dir.glob('json/*')
-  @hashs = files.map { |file| JSON.parse(File.read(file)) }
+  read_all
   erb :top
 end
 
