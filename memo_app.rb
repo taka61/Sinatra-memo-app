@@ -20,17 +20,17 @@ end
 
 def read_all
   files = Dir.glob('json/*')
-  @hashs = files.map { |file| JSON.parse(File.read(file)) }
+  files.map { |file| JSON.parse(File.read(file)) }
 end
 
-def write_memo(hashs)
-  File.open("json/#{hashs['id']}.json", 'w') do |file|
-    JSON.dump(hashs, file)
+def write_memo(hash)
+  File.open("json/#{hash['id']}.json", 'w') do |file|
+    JSON.dump(hash, file)
   end
 end
 
 get '/memos' do
-  read_all
+  @memos = read_all
   erb :top
 end
 
@@ -39,8 +39,8 @@ get '/memos/new' do
 end
 
 post '/memos' do
-  hashs = { 'id' => SecureRandom.uuid, "title": params[:title], "message": params[:message] }
-  write_memo(hashs)
+  hash = { 'id' => SecureRandom.uuid, "title": params[:title], "message": params[:message] }
+  write_memo(hash)
   redirect to('/memos')
 end
 
@@ -60,8 +60,8 @@ get '/memos/:id/delete' do
 end
 
 patch '/memos/:id' do
-  edit_hashs = { 'id' => params[:id], "title": params[:title], "message": params[:message] }
-  write_memo(edit_hashs)
+  edit_hash = { 'id' => params[:id], "title": params[:title], "message": params[:message] }
+  write_memo(edit_hash)
   redirect to('/memos')
 end
 
