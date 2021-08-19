@@ -23,9 +23,9 @@ def read_all
   files.map { |file| JSON.parse(File.read(file)) }
 end
 
-def write_memo(hash)
-  File.open("json/#{hash['id']}.json", 'w') do |file|
-    JSON.dump(hash, file)
+def write_memo(memo)
+  File.open("json/#{memo['id']}.json", 'w') do |file|
+    JSON.dump(memo, file)
   end
 end
 
@@ -39,8 +39,8 @@ get '/memos/new' do
 end
 
 post '/memos' do
-  hash = { 'id' => SecureRandom.uuid, "title": params[:title], "message": params[:message] }
-  write_memo(hash)
+  memo = { 'id' => SecureRandom.uuid, "title": params[:title], "message": params[:message] }
+  write_memo(memo)
   redirect to('/memos')
 end
 
@@ -60,8 +60,8 @@ get '/memos/:id/delete' do
 end
 
 patch '/memos/:id' do
-  edit_hash = { 'id' => params[:id], "title": params[:title], "message": params[:message] }
-  write_memo(edit_hash)
+  edit_memo = { 'id' => params[:id], "title": params[:title], "message": params[:message] }
+  write_memo(edit_memo)
   redirect to('/memos')
 end
 
