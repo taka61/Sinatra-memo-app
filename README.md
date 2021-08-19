@@ -34,3 +34,4 @@ $ bundle exec ruby memo_app.rb
  下記の画面が表示されましたら導入完了となります。メモの追加や削除を実行してみて下さい！
 
 <img width="248" alt="スクリーンショット 2021-08-05 13 45 56" src="https://user-images.githubusercontent.com/80372144/128293131-182cfe35-e657-4813-98b6-c145ef804a81.png">
+
