@@ -1,10 +1,10 @@
 <h1 class="header__title">削除しますか？</h1>
-<form action="http://localhost:4567/memos/<%= @file["id"] %>" method="POST">
+<form action="/memos/<%= @memo["id"] %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <p class="sub-title">メモタイトル</p>
-    <p><%= @file["title"] %></p>
+    <p><%= h(@memo["title"]) %></p>
     <p class="sub-title">メモ内容 </p>
-    <p><%= @file["message"] %></p>
+    <p><%= h(@memo["message"]) %></p>
     <button type="submit">削除</button>
-    <input type="button" onclick="location.href='http://localhost:4567/memos'" value="戻る">
+    <input type="button" onclick="location.href='/memos'" value="戻る">
 </form>

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'pg'
-
 require 'sinatra'
 require 'sinatra/reloader'
 require 'securerandom'
@@ -17,15 +16,13 @@ def connection
   PG.connect(dbname: 'sinatra_app')
 end
 
-def specific_file
-  files = connection.exec('SELECT * FROM memos WHERE id = $1', [params[:id]])
-  files.each do |file|
-    @file = file
-  end
+def read_memo
+  memos = connection.exec('SELECT * FROM memos WHERE id = $1', [params['id']])
+  memos.find { |memo| memo['id'] == params['id'] }
 end
 
 get '/memos' do
-  @data = connection.exec('SELECT * FROM memos;')
+  @memos = connection.exec('SELECT * FROM memos;')
   erb :top
 end
 
@@ -34,36 +31,37 @@ get '/memos/new' do
 end
 
 post '/memos' do
-  hashs = { 'id' => SecureRandom.uuid, 'title' => params[:title], 'message' => params[:message] }
-  @data = connection.exec('INSERT INTO memos(id, title, message) VALUES ($1, $2, $3)',
-                          [hashs['id'], hashs['title'], hashs['message']])
+  @memos = connection.exec('INSERT INTO memos(id, title, message) VALUES ($1, $2, $3)',
+                           [SecureRandom.uuid, params['title'], params['message']])
   redirect to('/memos')
 end
 
 get '/memos/:id' do
-  specific_file
+  @memo = read_memo
   erb :show
 end
 
 get '/memos/:id/edit' do
-  specific_file
+  @memo = read_memo
   erb :edit
 end
 
 get '/memos/:id/delete' do
-  specific_file
+  @memo = read_memo
   erb :delete
 end
 
 patch '/memos/:id' do
-  @id = params[:id]
-  @title = params[:title]
-  @message = params[:message]
-  @data = connection.exec('UPDATE memos SET title= $1, message= $2 WHERE id= $3', [@title, @message, @id])
+  @memos = connection.exec('UPDATE memos SET title= $1, message= $2 WHERE id= $3',
+                           [params['title'], params['message'], params['id']])
   redirect to('/memos')
 end
 
 delete '/memos/:id' do
-  @data = connection.exec('DELETE FROM memos WHERE id = $1', [params[:id].to_s])
+  @memos = connection.exec('DELETE FROM memos WHERE id = $1', [params['id'].to_s])
   redirect to('/memos')
+end
+
+not_found do
+  "You requested a route that wasn't available."
 end
