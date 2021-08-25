@@ -1,6 +1,6 @@
 <h1 class="header__title">メモアプリ</h1>
 <div class="memos_list">
-  <% @memos.map do |memo| %>
+  <% @memos.each do |memo| %>
   <li><a href="/memos/<%= h(memo["id"]) %>"><%= h(memo["title"]) %></a></li>
   <% end %>
 </div>

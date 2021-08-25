@@ -1,94 +1,120 @@
 body {
-    margin: 50px;
-    padding: 0 12px;
-    font: 100%/1.6 sans-serif;
-    box-sizing: border-box;
-    border-color: brown;
-  }
-  
-  .memos_list {
-      margin-bottom: 30px;
-  }
-  
-  .header__title {
-      font-size: 35px;
-      line-height: 100px;
-      align-self: center;
-      font-weight:bold;
-      color: gray;
-    }
-  
-  .layout {
-      width         : 300px; 
-  }
-  
-  input[type="button"] {
-    margin-top    : 20px;
-    margin-left   : 50px;
-    display       : inline-block;
-    border-radius : 7%;         
-    font-size     : 12pt;        
-    text-align    : center;      
-    cursor        : pointer;     
-    padding       : 8px 16px;   
-    background    : rgba(0, 127, 255, 0.82);     
-    color         : #ffffff;   
-    line-height   : 1em;         
-    transition    : .3s;         
-    box-shadow    : 3px 3px 2px #666666;  
-    border        : 2px solid rgba(0, 127, 255, 0.82);    
-  }
-  
-  button {
-    margin-top    : 20px;
-    margin-left   : 50px;
-    display       : inline-block;
-    border-radius : 7%;          
-    font-size     : 12pt;        
-    text-align    : center;      
-    cursor        : pointer;     
-    padding       : 8px 16px;   
-    background    : #ffffff;     
-    color         : rgba(0, 127, 255, 0.82);     
-    line-height   : 1em;        
-    transition    : .3s;         
-    box-shadow    : 3px 3px 2px #666666;  
-    border        : 2px solid rgba(0, 127, 255, 0.82);    
-  }
-  
-  
-  input[type="button"]:hover,
-  button:hover {
-    box-shadow    : none;        
-    color         : rgba(0, 127, 255, 0.82);     
-    background    : #ffffff;     
-  }
-      
-  button:hover {
-    box-shadow    : none;        
-    color         : #ffffff;     
-    background    : rgba(0, 127, 255, 0.82);     
-  }
-  
-   input[type="text"],
-   textarea {
-      border-color: #f3d9ff;
-      background-color: #D9E5FF;
-      justify-content: center;
-      margin-bottom: 20px;
-      
-   }
-  
-   .sub-title {
-       font-size: 12px;
-       font-weight:bold;
-       color: blueviolet;
-   }
-  
-   .memo-title {
-      font-size: 15px;
-      font-weight:bold;
-      color: blue;
-   }
-  
-   
+  margin: 50px;
+  padding: 0 12px;
+  font: 100%/1.6 sans-serif;
+  box-sizing: border-box;
+  border-color: brown;
+}
+
+.memos_list {
+  margin-bottom: 30px;
+}
+
+.header__title {
+  font-size: 35px;
+  line-height: 100px;
+  align-self: center;
+  font-weight: bold;
+  color: gray;
+}
+
+.layout {
+  width: 300px;
+}
+
+input[type="button"] {
+  margin-top: 20px;
+  margin-left: 50px;
+  display: inline-block;
+  border-radius: 7%;
+  /* 角丸       */
+  font-size: 12pt;
+  /* 文字サイズ */
+  text-align: center;
+  /* 文字位置   */
+  cursor: pointer;
+  /* カーソル   */
+  padding: 8px 16px;
+  /* 余白       */
+  background: rgba(0, 127, 255, 0.82);
+  /* 背景色     */
+  color: #ffffff;
+  /* 文字色     */
+  line-height: 1em;
+  /* 1行の高さ  */
+  transition: .3s;
+  /* なめらか変化 */
+  box-shadow: 3px 3px 2px #666666;
+  /* 影の設定 */
+  border: 2px solid rgba(0, 127, 255, 0.82);
+  /* 枠の指定 */
+}
+
+button {
+  margin-top: 20px;
+  margin-left: 50px;
+  display: inline-block;
+  border-radius: 7%;
+  /* 角丸       */
+  font-size: 12pt;
+  /* 文字サイズ */
+  text-align: center;
+  /* 文字位置   */
+  cursor: pointer;
+  /* カーソル   */
+  padding: 8px 16px;
+  /* 余白       */
+  background: #ffffff;
+  /* 背景色     */
+  color: rgba(0, 127, 255, 0.82);
+  /* 文字色     */
+  line-height: 1em;
+  /* 1行の高さ  */
+  transition: .3s;
+  /* なめらか変化 */
+  box-shadow: 3px 3px 2px #666666;
+  /* 影の設定 */
+  border: 2px solid rgba(0, 127, 255, 0.82);
+  /* 枠の指定 */
+}
+
+
+input[type="button"]:hover,
+button:hover {
+  box-shadow: none;
+  /* カーソル時の影消去 */
+  color: rgba(0, 127, 255, 0.82);
+  /* 背景色     */
+  background: #ffffff;
+  /* 文字色     */
+}
+
+button:hover {
+  box-shadow: none;
+  /* カーソル時の影消去 */
+  color: #ffffff;
+  /* 背景色     */
+  background: rgba(0, 127, 255, 0.82);
+  /* 文字色     */
+}
+
+input[type="text"],
+textarea {
+  border-color: #f3d9ff;
+  background-color: #D9E5FF;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.sub-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: blueviolet;
+}
+
+.memo-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: blue;
+}
