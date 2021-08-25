@@ -38,17 +38,29 @@ end
 
 get '/memos/:id' do
   @memo = read_memo
-  erb :show
+  if @memo
+    erb :show
+  else
+    erb :error
+  end
 end
 
 get '/memos/:id/edit' do
   @memo = read_memo
-  erb :edit
+  if @memo
+    erb :edit
+  else
+    erb :error
+  end
 end
 
 get '/memos/:id/delete' do
   @memo = read_memo
-  erb :delete
+  if @memo
+    erb :delete
+  else
+    erb :error
+  end
 end
 
 patch '/memos/:id' do
